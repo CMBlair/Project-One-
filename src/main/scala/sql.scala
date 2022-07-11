@@ -24,7 +24,7 @@ object sql {
 
 
 
-  def createUser(Username: String, Password: String): Int = {
+  def createUser(Username: String, Password: String): Unit = {
     connect()
     var resultSet = 0
     var statement = connection.prepareStatement(s"Insert into standard_users (Username, Password) Values(?, ?)")
@@ -33,23 +33,21 @@ object sql {
       statement.setString(2, Password)
       resultSet = statement.executeUpdate()
       println("The user account has been created")
-      //showAllUsers()
-      resultSet
+
     }
     catch {
       case e: SQLException => e.printStackTrace()
-        resultSet
     }
   }
 
-  def showAllUsers(Username: String): Unit = {
+  def showAllUsers(): Unit = {
     connect()
     val statement = connection.prepareStatement("Select Username from standard_users")
     try {
       val resultSet = statement.executeQuery()
 
       while (resultSet.next()) {
-        print(resultSet.getString("Firstname"))
+        print(resultSet.getString("Username"))
       }
     } catch {
       case e: Exception => e.printStackTrace()
@@ -103,6 +101,7 @@ object sql {
 
   def deleteUser(delUser: String): Unit = {
     connect()
+    //showAllUsers()
     val statement = connection.createStatement().executeUpdate(s"Delete From standard_users where username = '$delUser'")
 
     if (statement == 0) {
@@ -150,6 +149,8 @@ object sql {
     connection.close()
 
   }
+
+
 
 
 }

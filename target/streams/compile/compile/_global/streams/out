@@ -1,8 +1,7 @@
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Corey\Documents\untitled\src\main\scala\sql.scala:121:5: A try without a catch or finally is equivalent to putting its body in a block; no exceptions are handled.[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Corey\Documents\untitled\src\main\scala\sql.scala:120:5: A try without a catch or finally is equivalent to putting its body in a block; no exceptions are handled.[0m
 [0m[[0m[33mwarn[0m] [0m[0m    try {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Corey\Documents\untitled\src\main\scala\sql.scala:137:5: A try without a catch or finally is equivalent to putting its body in a block; no exceptions are handled.[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Corey\Documents\untitled\src\main\scala\sql.scala:136:5: A try without a catch or finally is equivalent to putting its body in a block; no exceptions are handled.[0m
 [0m[[0m[33mwarn[0m] [0m[0m    try {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m1 deprecation (since 2.13.3); re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mthree warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m

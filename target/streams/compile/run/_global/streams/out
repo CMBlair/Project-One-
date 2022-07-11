@@ -1,20 +1,42 @@
-[0m[[0m[31merror[0m] [0m[0morg.apache.spark.sql.catalyst.parser.ParseException: [0m
-[0m[[0m[31merror[0m] [0m[0mextraneous input ''' expecting {'(', 'ADD', 'AFTER', 'ALL', 'ALTER', 'ANALYZE', 'AND', 'ANTI', 'ANY', 'ARCHIVE', 'ARRAY', 'AS', 'ASC', 'AT', 'AUTHORIZATION', 'BETWEEN', 'BOTH', 'BUCKET', 'BUCKETS', 'BY', 'CACHE', 'CASCADE', 'CASE', 'CAST', 'CHANGE', 'CHECK', 'CLEAR', 'CLUSTER', 'CLUSTERED', 'CODEGEN', 'COLLATE', 'COLLECTION', 'COLUMN', 'COLUMNS', 'COMMENT', 'COMMIT', 'COMPACT', 'COMPACTIONS', 'COMPUTE', 'CONCATENATE', 'CONSTRAINT', 'COST', 'CREATE', 'CROSS', 'CUBE', 'CURRENT', 'CURRENT_DATE', 'CURRENT_TIME', 'CURRENT_TIMESTAMP', 'CURRENT_USER', 'DAY', 'DATA', 'DATABASE', DATABASES, 'DBPROPERTIES', 'DEFINED', 'DELETE', 'DELIMITED', 'DESC', 'DESCRIBE', 'DFS', 'DIRECTORIES', 'DIRECTORY', 'DISTINCT', 'DISTRIBUTE', 'DIV', 'DROP', 'ELSE', 'END', 'ESCAPE', 'ESCAPED', 'EXCEPT', 'EXCHANGE', 'EXISTS', 'EXPLAIN', 'EXPORT', 'EXTENDED', 'EXTERNAL', 'EXTRACT', 'FALSE', 'FETCH', 'FIELDS', 'FILTER', 'FILEFORMAT', 'FIRST', 'FOLLOWING', 'FOR', 'FOREIGN', 'FORMAT', 'FORMATTED', 'FROM', 'FULL', 'FUNCTION', 'FUNCTIONS', 'GLOBAL', 'GRANT', 'GROUP', 'GROUPING', 'HAVING', 'HOUR', 'IF', 'IGNORE', 'IMPORT', 'IN', 'INDEX', 'INDEXES', 'INNER', 'INPATH', 'INPUTFORMAT', 'INSERT', 'INTERSECT', 'INTERVAL', 'INTO', 'IS', 'ITEMS', 'JOIN', 'KEYS', 'LAST', 'LATERAL', 'LAZY', 'LEADING', 'LEFT', 'LIKE', 'LIMIT', 'LINES', 'LIST', 'LOAD', 'LOCAL', 'LOCATION', 'LOCK', 'LOCKS', 'LOGICAL', 'MACRO', 'MAP', 'MATCHED', 'MERGE', 'MINUTE', 'MONTH', 'MSCK', 'NAMESPACE', 'NAMESPACES', 'NATURAL', 'NO', NOT, 'NULL', 'NULLS', 'OF', 'ON', 'ONLY', 'OPTION', 'OPTIONS', 'OR', 'ORDER', 'OUT', 'OUTER', 'OUTPUTFORMAT', 'OVER', 'OVERLAPS', 'OVERLAY', 'OVERWRITE', 'PARTITION', 'PARTITIONED', 'PARTITIONS', 'PERCENT', 'PIVOT', 'PLACING', 'POSITION', 'PRECEDING', 'PRIMARY', 'PRINCIPALS', 'PROPERTIES', 'PURGE', 'QUERY', 'RANGE', 'RECORDREADER', 'RECORDWRITER', 'RECOVER', 'REDUCE', 'REFERENCES', 'REFRESH', 'RENAME', 'REPAIR', 'REPLACE', 'RESET', 'RESPECT', 'RESTRICT', 'REVOKE', 'RIGHT', RLIKE, 'ROLE', 'ROLES', 'ROLLBACK', 'ROLLUP', 'ROW', 'ROWS', 'SECOND', 'SCHEMA', 'SELECT', 'SEMI', 'SEPARATED', 'SERDE', 'SERDEPROPERTIES', 'SESSION_USER', 'SET', 'MINUS', 'SETS', 'SHOW', 'SKEWED', 'SOME', 'SORT', 'SORTED', 'START', 'STATISTICS', 'STORED', 'STRATIFY', 'STRUCT', 'SUBSTR', 'SUBSTRING', 'SYNC', 'TABLE', 'TABLES', 'TABLESAMPLE', 'TBLPROPERTIES', TEMPORARY, 'TERMINATED', 'THEN', 'TIME', 'TO', 'TOUCH', 'TRAILING', 'TRANSACTION', 'TRANSACTIONS', 'TRANSFORM', 'TRIM', 'TRUE', 'TRUNCATE', 'TRY_CAST', 'TYPE', 'UNARCHIVE', 'UNBOUNDED', 'UNCACHE', 'UNION', 'UNIQUE', 'UNKNOWN', 'UNLOCK', 'UNSET', 'UPDATE', 'USE', 'USER', 'USING', 'VALUES', 'VIEW', 'VIEWS', 'WHEN', 'WHERE', 'WINDOW', 'WITH', 'YEAR', 'ZONE', '+', '-', '*', '~', STRING, BIGINT_LITERAL, SMALLINT_LITERAL, TINYINT_LITERAL, INTEGER_VALUE, EXPONENT_VALUE, DECIMAL_VALUE, FLOAT_LITERAL, DOUBLE_LITERAL, BIGDECIMAL_LITERAL, IDENTIFIER, BACKQUOTED_IDENTIFIER}(line 1, pos 74)[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.spark.sql.AnalysisException: Table or view not found: moves; line 1 pos 32;[0m
+[0m[[0m[31merror[0m] [0m[0m'Distinct[0m
+[0m[[0m[31merror[0m] [0m[0m+- 'Project ['Generation][0m
+[0m[[0m[31merror[0m] [0m[0m   +- 'UnresolvedRelation [moves], [], false[0m
 [0m[[0m[31merror[0m] [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m== SQL ==[0m
-[0m[[0m[31merror[0m] [0m[0mselect Name, Generation from moves where Contest = 'Cool' AND  Category = 'Status[0m
-[0m[[0m[31merror[0m] [0m[0m--------------------------------------------------------------------------^^^[0m
-[0m[[0m[31merror[0m] [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.parser.ParseException.withCommand(ParseDriver.scala:266)[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parse(ParseDriver.scala:127)[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.SparkSqlParser.parse(SparkSqlParser.scala:51)[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.parser.AbstractSqlParser.parsePlan(ParseDriver.scala:77)[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.$anonfun$sql$2(SparkSession.scala:616)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.package$AnalysisErrorAt.failAnalysis(package.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis$1(CheckAnalysis.scala:123)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis$1$adapted(CheckAnalysis.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:263)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1(TreeNode.scala:262)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1$adapted(TreeNode.scala:262)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Vector.foreach(Vector.scala:1856)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:262)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1(TreeNode.scala:262)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1$adapted(TreeNode.scala:262)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Vector.foreach(Vector.scala:1856)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:262)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis(CheckAnalysis.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis$(CheckAnalysis.scala:91)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:182)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$executeAndCheck$1(Analyzer.scala:205)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:330)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:202)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.$anonfun$analyzed$1(QueryExecution.scala:88)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:111)[0m
-[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.$anonfun$sql$1(SparkSession.scala:616)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:196)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:196)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:88)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:86)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:78)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.Dataset$.$anonfun$ofRows$2(Dataset.scala:98)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:96)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.$anonfun$sql$1(SparkSession.scala:618)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)[0m
 [0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.sql(SparkSession.scala:613)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Main$.main(Main.scala:34)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.queryShowMovesFromGeneration$1(Main.scala:222)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.main(Main.scala:20)[0m
 [0m[[0m[31merror[0m] [0m[0m	at Main.main(Main.scala)[0m
 [0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
 [0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[0m
@@ -33,9 +55,7 @@
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Thread.java:750)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.spark.sql.catalyst.parser.ParseException: [0m
-[0m[[0m[31merror[0m] [0m[0mextraneous input ''' expecting {'(', 'ADD', 'AFTER', 'ALL', 'ALTER', 'ANALYZE', 'AND', 'ANTI', 'ANY', 'ARCHIVE', 'ARRAY', 'AS', 'ASC', 'AT', 'AUTHORIZATION', 'BETWEEN', 'BOTH', 'BUCKET', 'BUCKETS', 'BY', 'CACHE', 'CASCADE', 'CASE', 'CAST', 'CHANGE', 'CHECK', 'CLEAR', 'CLUSTER', 'CLUSTERED', 'CODEGEN', 'COLLATE', 'COLLECTION', 'COLUMN', 'COLUMNS', 'COMMENT', 'COMMIT', 'COMPACT', 'COMPACTIONS', 'COMPUTE', 'CONCATENATE', 'CONSTRAINT', 'COST', 'CREATE', 'CROSS', 'CUBE', 'CURRENT', 'CURRENT_DATE', 'CURRENT_TIME', 'CURRENT_TIMESTAMP', 'CURRENT_USER', 'DAY', 'DATA', 'DATABASE', DATABASES, 'DBPROPERTIES', 'DEFINED', 'DELETE', 'DELIMITED', 'DESC', 'DESCRIBE', 'DFS', 'DIRECTORIES', 'DIRECTORY', 'DISTINCT', 'DISTRIBUTE', 'DIV', 'DROP', 'ELSE', 'END', 'ESCAPE', 'ESCAPED', 'EXCEPT', 'EXCHANGE', 'EXISTS', 'EXPLAIN', 'EXPORT', 'EXTENDED', 'EXTERNAL', 'EXTRACT', 'FALSE', 'FETCH', 'FIELDS', 'FILTER', 'FILEFORMAT', 'FIRST', 'FOLLOWING', 'FOR', 'FOREIGN', 'FORMAT', 'FORMATTED', 'FROM', 'FULL', 'FUNCTION', 'FUNCTIONS', 'GLOBAL', 'GRANT', 'GROUP', 'GROUPING', 'HAVING', 'HOUR', 'IF', 'IGNORE', 'IMPORT', 'IN', 'INDEX', 'INDEXES', 'INNER', 'INPATH', 'INPUTFORMAT', 'INSERT', 'INTERSECT', 'INTERVAL', 'INTO', 'IS', 'ITEMS', 'JOIN', 'KEYS', 'LAST', 'LATERAL', 'LAZY', 'LEADING', 'LEFT', 'LIKE', 'LIMIT', 'LINES', 'LIST', 'LOAD', 'LOCAL', 'LOCATION', 'LOCK', 'LOCKS', 'LOGICAL', 'MACRO', 'MAP', 'MATCHED', 'MERGE', 'MINUTE', 'MONTH', 'MSCK', 'NAMESPACE', 'NAMESPACES', 'NATURAL', 'NO', NOT, 'NULL', 'NULLS', 'OF', 'ON', 'ONLY', 'OPTION', 'OPTIONS', 'OR', 'ORDER', 'OUT', 'OUTER', 'OUTPUTFORMAT', 'OVER', 'OVERLAPS', 'OVERLAY', 'OVERWRITE', 'PARTITION', 'PARTITIONED', 'PARTITIONS', 'PERCENT', 'PIVOT', 'PLACING', 'POSITION', 'PRECEDING', 'PRIMARY', 'PRINCIPALS', 'PROPERTIES', 'PURGE', 'QUERY', 'RANGE', 'RECORDREADER', 'RECORDWRITER', 'RECOVER', 'REDUCE', 'REFERENCES', 'REFRESH', 'RENAME', 'REPAIR', 'REPLACE', 'RESET', 'RESPECT', 'RESTRICT', 'REVOKE', 'RIGHT', RLIKE, 'ROLE', 'ROLES', 'ROLLBACK', 'ROLLUP', 'ROW', 'ROWS', 'SECOND', 'SCHEMA', 'SELECT', 'SEMI', 'SEPARATED', 'SERDE', 'SERDEPROPERTIES', 'SESSION_USER', 'SET', 'MINUS', 'SETS', 'SHOW', 'SKEWED', 'SOME', 'SORT', 'SORTED', 'START', 'STATISTICS', 'STORED', 'STRATIFY', 'STRUCT', 'SUBSTR', 'SUBSTRING', 'SYNC', 'TABLE', 'TABLES', 'TABLESAMPLE', 'TBLPROPERTIES', TEMPORARY, 'TERMINATED', 'THEN', 'TIME', 'TO', 'TOUCH', 'TRAILING', 'TRANSACTION', 'TRANSACTIONS', 'TRANSFORM', 'TRIM', 'TRUE', 'TRUNCATE', 'TRY_CAST', 'TYPE', 'UNARCHIVE', 'UNBOUNDED', 'UNCACHE', 'UNION', 'UNIQUE', 'UNKNOWN', 'UNLOCK', 'UNSET', 'UPDATE', 'USE', 'USER', 'USING', 'VALUES', 'VIEW', 'VIEWS', 'WHEN', 'WHERE', 'WINDOW', 'WITH', 'YEAR', 'ZONE', '+', '-', '*', '~', STRING, BIGINT_LITERAL, SMALLINT_LITERAL, TINYINT_LITERAL, INTEGER_VALUE, EXPONENT_VALUE, DECIMAL_VALUE, FLOAT_LITERAL, DOUBLE_LITERAL, BIGDECIMAL_LITERAL, IDENTIFIER, BACKQUOTED_IDENTIFIER}(line 1, pos 74)[0m
-[0m[[0m[31merror[0m] [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m== SQL ==[0m
-[0m[[0m[31merror[0m] [0m[0mselect Name, Generation from moves where Contest = 'Cool' AND  Category = 'Status[0m
-[0m[[0m[31merror[0m] [0m[0m--------------------------------------------------------------------------^^^[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.spark.sql.AnalysisException: Table or view not found: moves; line 1 pos 32;[0m
+[0m[[0m[31merror[0m] [0m[0m'Distinct[0m
+[0m[[0m[31merror[0m] [0m[0m+- 'Project ['Generation][0m
+[0m[[0m[31merror[0m] [0m[0m   +- 'UnresolvedRelation [moves], [], false[0m
