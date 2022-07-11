@@ -12,6 +12,12 @@ object Main {
       .enableHiveSupport()
       .getOrCreate()
 
+
+
+
+    Logger.getLogger("org").setLevel(Level.ERROR)
+    println("created spark session")
+    /*
     val url = "jdbc:mysql://localhost:3306/Users"
     val user = "root"
     val pass = "corey"
@@ -20,11 +26,13 @@ object Main {
       .option("password",pass)
       .option("driver", "com.mysql.jdbc.Driver").load()
     sourceDf.show()
-
-
-    Logger.getLogger("org").setLevel(Level.ERROR)
-    println("created spark session")
-
+    */
+    sql.connect()
+    sql.validateLogin("Corey","Corey")
+    val df = spark.read.json("hdfs://localhost:9000/user/corey/moves.json")
+    df.createOrReplaceTempView("moves")
+    df.sparkSession.sql("select Name, Generation from moves where Contest = 'Cool' AND  Category = 'Status'").show()
+    /*
     println("\u001B[35m--------Admin menu--------\u001B[0m")
     println("\u001B[33mPlease select an option 1-8")
     print("Welcome -> ")
@@ -40,6 +48,8 @@ object Main {
         "\u001B[33mOption 7: \u001B[35mDelete Account\n" +
         "\u001B[33mOption 8: \u001B[35mexit app\u001B[0m"
     }
+
+     */
 
 
 
