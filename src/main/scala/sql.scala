@@ -1,6 +1,7 @@
 import java.sql.{Connection, DriverManager, SQLException}
 import scala.collection.mutable.ListBuffer
 object sql {
+  //This class is for interacting with the MYSQL database. It is used to create a connection to the database, and to execute SQL queries.
   private var connection: Connection = _
   def connect(): Unit = {
     val url = "jdbc:mysql://localhost:3306/Users"
@@ -125,6 +126,21 @@ object sql {
       } else {
         println("Username and Password are correct.")
         //print("")
+        true
+      }
+    }
+  }
+  def validAdmLogin(usersPassword: String): Boolean = {
+    connect()
+    val statement = connection.prepareStatement(s"SELECT * From admin_users WHERE Username = 'admin' AND password = '$usersPassword'")
+    var validUsername = statement.executeQuery()
+
+    try {
+      if (!validUsername.next()) {
+        println("Username and Password are incorrect")
+        false
+
+      } else {
         true
       }
     }
