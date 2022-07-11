@@ -84,19 +84,19 @@ object sql {
     } catch {
       case e: Exception => e.printStackTrace()
     }
-    println("Username has been updated")
+    println("Password has been updated")
 
   }
-  def updateAdmPassword(username:String, password: String): Unit = {
+  def updateAdmPassword(password: String): Unit = {
     connect()
     val statement = connection.createStatement()
 
     try {
-      statement.executeUpdate(s"UPDATE admin_users SET Password = '$password' WHERE Username = '$username'")
+      statement.executeUpdate(s"UPDATE admin_users SET Password = '$password' WHERE Username = 'Admin'")
     } catch {
       case e: Exception => e.printStackTrace()
     }
-    println("Username has been updated")
+    println("Password has been updated")
 
   }
 
@@ -121,24 +121,22 @@ object sql {
     try {
       if (!validUsername.next()) {
         println("Username and Password are incorrect")
-        //print("")
         false
 
       } else {
-        println("Username and Password are correct.")
-        //print("")
         true
       }
     }
   }
+
   def validAdmLogin(usersPassword: String): Boolean = {
     connect()
-    val statement = connection.prepareStatement(s"SELECT * From admin_users WHERE Username = 'admin' AND password = '$usersPassword'")
+    val statement = connection.prepareStatement(s"SELECT * From admin_users WHERE Username = 'Admin' AND password = '$usersPassword'")
     var validUsername = statement.executeQuery()
 
     try {
       if (!validUsername.next()) {
-        println("Username and Password are incorrect")
+        println("Password incorrect")
         false
 
       } else {
