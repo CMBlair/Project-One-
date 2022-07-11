@@ -112,6 +112,7 @@ object sql {
     }
   }
 
+
   def validateLogin(usersUserName: String, usersPassword: String): Boolean = {
     connect()
     val statement = connection.prepareStatement(s"SELECT * From standard_users WHERE Username = '$usersUserName' AND password = '$usersPassword'")

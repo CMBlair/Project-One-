@@ -13,69 +13,85 @@ object Main {
       .config("spark.master", "local[*]")
       .enableHiveSupport()
       .getOrCreate()
-
-
-
-
     Logger.getLogger("org").setLevel(Level.ERROR)
     println("created spark session")
     sql.connect()
-    val df = spark.read.json("hdfs://localhost:9000/user/corey/moves.json")
-    df.createOrReplaceTempView("moves")
-
-
+    val dbStr = "jdbc:mysql://localhost:3306/Users"
+    spark.read.format("csv")
+      .option("header", true)
+      .load("C:\\Users\\Corey\\Documents\\untitled\\move-data.csv")
+      .write.mode("overwrite").format("jdbc")
+      .option("url", dbStr)
+      .option("dbtable", "moves")
+      .option("driver", "com.mysql.jdbc.Driver")
+      .option("user", "root")
+      .option("password", "corey").save()
+      mainMenu()
     def mainMenu(): Unit = {
-      println("\u001B[35m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
       println("\u001B[33m" + "Welcome to the Pokemon Moves Database");
-      println("\u001B[35m" + "Please select an option below:");
-      println("\u001B[35m" + "1: Login");
-      println("\u001B[35m" + "2: Admin Login");
-      println("\u001B[35m" + "3: Register");
-      println("\u001B[35m" + "4: Exit");
-      println("\u001B[35m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      println("\u001B24m" + "Please select an option below:");
+      println("\u001B24m" + "1: Login");
+      println("\u001B24m" + "2: Admin Login");
+      println("\u001B24m" + "3: Register");
+      println("\u001B24m" + "4: Exit");
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
       val option = scala.io.StdIn.readLine()
       option match {
         case "1" => login()
-        case "2" => adminLogin()
-        case "3" => register()
+        //case "2" => adminLogin()
+        //case "3" => register()
         case "3" => exit()
         case _ => mainMenu()
       }
     }
     def exit(): Unit = {
-      println("\u001B[35m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
       println("\u001B[33m" + "Thank you for using the Pokemon Moves Database");
-      println("\u001B[35m" + "Goodbye!");
-      println("\u001B[35m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      println("\u001B24m" + "Goodbye!");
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
       System.exit(0)
 
     }
     def login(): Unit = {
-      println("\u001B[35m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
       println("\u001B[33m" + "Please enter your username: ");
       val username = scala.io.StdIn.readLine()
       println("\u001B[33m" + "Please enter your password: ");
       val password = scala.io.StdIn.readLine()
       val loggedIn = sql.validateLogin(username, password)
       if(loggedIn) {
-        println("\u001B[35m" + "Welcome " + username + "!");
-
+        println("\u001B24m" + "Welcome " + username + "!");
+        stdMenu()
 
         }
       }
+    def stdMenu(): Unit = {
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      println("\u001B[33m" + "Please select an option below:");
+      println("\u001B24m" + "1: Query the Database");
+      println("\u001B24m" + "2: Logout");
+      println("\u001B24m" + "3: Change Password");
+      println("\u001B24m" + "4: Exit");
+      println("\u001B24m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001B[0m")
+      val option = scala.io.StdIn.readLine()
+      option match {
+        case "1" => query()
+        case "2" => logout()
+        case "3" => changePassword()Mm I 
+        case "4" => exit()
+        case _ => stdMenu()
+      }
     }
-    //df.sparkSession.sql("select Name, Generation from moves where Contest = 'Cool' AND  Category = 'Status'").show()
-    println("\u001B[35m--------Admin menu--------\u001B[0m")
-    println("\u001B[33mPlease select an option 1-8")
-    print("Welcome -> ")
-    //sql.showUser(currentUser)
-    //println("\nUser: "+currentUser)
-    println {
-        "\u001B[33mOption 1: \u001B[35mChange Admin Password\n" +
-        "\u001B[33mOption 2: \u001B[35mGo to data \n" +
-        "\u001B[33mOption 3: \u001B[35mDelete Standard User\n" +
-          "\u001B[33mOption 4: \u001B[35mLogout\n" +
-        "\u001B[33mOption 5: \u001B[35mexit app\u001B[0m"
+    def adminMenu(): Unit = {
+    println("\u001B24m--------Admin menu--------\u001B[0m")
+    println("\u001B[33mPlease select an option below:")
+    println("\u001B24m1: Add a New User")
+    println("\u001B24m2: Delete a User")
+    println("\u001B24m3: Change Password")
+    println("\u001B24m4: Logout")
+    println("\u001B24m4: Exit")
+
     }
   }
 }
