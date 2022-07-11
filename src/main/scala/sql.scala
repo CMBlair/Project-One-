@@ -1,7 +1,8 @@
 import java.sql.{Connection, DriverManager, SQLException}
 import scala.collection.mutable.ListBuffer
-object sql
-{
+object sql {
+}
+/*
   private var connection: Connection = _
   def connect(): Unit = {
     val url = "jdbc:mysql://localhost:3306/Users"
@@ -203,3 +204,4 @@ object sql
 
 
 }
+*/

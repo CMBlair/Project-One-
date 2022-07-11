@@ -1,19 +1,27 @@
 import org.apache.log4j.{Level, Logger}
-import org.apache.spark.sql._
+import org.apache.spark.sql.{DataFrame, SparkSession}
+
 
 object Main {
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "~/hadoop/hadoop-3.3.3")
+    //System.setProperty("hadoop.home.dir", "~/hadoop/hadoop-3.3.3")
     val spark = SparkSession
       .builder
       .appName("PokemonMoves")
       .config("spark.master", "local[*]")
       .enableHiveSupport()
       .getOrCreate()
-    sql.connect()
-    val url = "jdbc:mysql://localhost:3306/pokemon"
+
+    val url = "jdbc:mysql://localhost:3306/Users"
     val user = "root"
-    val password = ""
+    val pass = "corey"
+    val sourceDf=spark.read.format("jdbc").option("url",url)
+      .option("dbtable","standard_users").option("user",user)
+      .option("password",pass)
+      .option("driver", "com.mysql.jdbc.Driver").load()
+    sourceDf.show()
+
+
     Logger.getLogger("org").setLevel(Level.ERROR)
     println("created spark session")
 
